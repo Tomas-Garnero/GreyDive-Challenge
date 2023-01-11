@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postForm } from "../../Action/index.js";
+import { useNavigate } from "react-router-dom";
 
 import BasicDatePicker from '../Inputs/DatePicker';
 import BasicSelect from "../Inputs/BasicSelect";
@@ -16,6 +17,7 @@ import Mock from "../../Mock.json";
 export default function ViewForm() {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [errors, setErrors] = useState({});
     const [input, setInput] = useState({});
@@ -39,8 +41,9 @@ export default function ViewForm() {
         // if (Object.values(errorSaver).length === 0) {
         console.log(input)
         dispatch(postForm({...input}));
-            // navigate("/home");
-            alert("Formulario Enviado!");
+        if (confirm("Formulario enviado!\n ¿quiere ir a las respuestas?")) {
+                navigate("/form");
+            }
         setInput({})
         // }
     }
