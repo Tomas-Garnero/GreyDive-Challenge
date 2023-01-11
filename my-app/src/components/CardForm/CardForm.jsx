@@ -17,7 +17,7 @@ export default function CardForm({item}) {
                     {`Email: ${item.email}`}
                 </Typography>
                 <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    {`Birth Date: ${new Date(item.birth_date.seconds*1000)}`}
+                    {`Birth Date: ${new Date(item.birth_date?.seconds*1000)}`}
                 </Typography>
                 <Typography variant="body2">
                     {`Country: ${item.country_of_origin}`}

@@ -41,7 +41,8 @@ export default function ViewForm() {
         // if (Object.values(errorSaver).length === 0) {
         console.log(input)
         dispatch(postForm({...input}));
-        if (confirm("Formulario enviado!\n ¿quiere ir a las respuestas?")) {
+        let confirmado = window.confirm("Formulario enviado!\n ¿quiere ir a las respuestas?")
+        if (confirmado) {
                 navigate("/form");
             }
         setInput({})
