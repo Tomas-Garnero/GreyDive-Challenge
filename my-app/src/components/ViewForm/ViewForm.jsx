@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postForm } from "../../Action/index.js";
 import { useNavigate } from "react-router-dom";
+import Typography from '@mui/material/Typography';
 
 import BasicDatePicker from '../Inputs/DatePicker';
 import BasicSelect from "../Inputs/BasicSelect";
@@ -50,16 +51,18 @@ export default function ViewForm() {
     }
 
     return (
-        <div>
-            <h1>
+        <Paper sx={{bgcolor: "#F0B27A", height: "100%", minHeight: "100vh"}}>
+            <Typography fontWeight={700} sx={{ fontSize: 35, display: "flex", justifyContent: "center", mb: 2, ml: 2, mr: 2 }} color="text.secondary" gutterBottom>
                 GREYDIVE CHALLENGE
-            </h1>
-            <Paper>
+            </Typography>
+            <Paper elevation={8} sx={{maxWidth: 1000, ml: 25, bgcolor: "#7DCEA0"}}>
                 <Box 
                     component="form"
-                    sx={{'& > :not(style)': { m: 1, width: '25ch' },}}
                     noValidate
+                    sx={{'& > :not(style)': { m: 2.5, width: '35ch' }, display:"flex", flexDirection: "column", m: 4, alignItems: "center"}}
                     autoComplete="off"
+                    display="flex"
+                    direction="column"
                 >
                     {Mock.items.map(item => {
                         switch(item.type) {
@@ -103,6 +106,6 @@ export default function ViewForm() {
                     })}
                 </Box>
             </Paper>
-        </div>
+        </Paper>
     )
 }
